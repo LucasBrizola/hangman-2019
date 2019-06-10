@@ -4,12 +4,12 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import pucrs.java.maven.hangman.domain.hangman;
+import pucrs.java.maven.hangman.domain.Hangman;
 
 public class testGameStart {
 	@Test
 	public void testgameStart() {
-		hangman h = new hangman("hangman");
+		Hangman h = new Hangman("hangman");
 		assertEquals("hangman", h.getWord());
 	}
 }
