@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="pucrs.java.maven.hangman.domainTest.HangmanTest" time="0.004" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="pucrs.java.maven.hangman.domainTest.HangmanTest" time="0.015" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="12.0.1+12"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\Java\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf9961622868612065295.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\Java\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf112076885676961523.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk-12.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jdk-12.0.1/bin/server;C:/Program Files/Java/jdk-12.0.1/bin;C:\Program Files\Java\jdk-12.0.1\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\Java\apache-maven-3.6.1\bin;C:\Users\Java\AppData\Local\Microsoft\WindowsApps;;C:\Users\Java\Desktop;;."/>
     <property name="jdk.debug" value="release"/>
@@ -59,7 +59,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testFirstGuessWrong" time="0.003"/>
-  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testGameStartForCasa" time="0.001"/>
-  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testGameStartForHangman" time="0"/>
+  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testFirstGuessRight" time="0.006"/>
+  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testFirstGuessWrong" time="0.001"/>
+  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testGameStartForCasa" time="0"/>
+  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testIfTheGameIsOverByDeath" time="0.004"/>
+  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testGameStartForHangman" time="0.001"/>
+  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testIfTheGameIsNotOverWhenMissingLetter" time="0.001"/>
+  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testIfTheGameIsOverByWinning" time="0.001"/>
+  <testcase classname="pucrs.java.maven.hangman.domainTest.HangmanTest" name="testIfTheGameIsOverByWinningWithTwoMisses" time="0.001"/>
 </testsuite>

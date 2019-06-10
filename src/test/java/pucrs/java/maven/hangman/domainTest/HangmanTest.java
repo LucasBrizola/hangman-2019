@@ -1,6 +1,7 @@
 package pucrs.java.maven.hangman.domainTest;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -12,6 +13,7 @@ public class HangmanTest {
 	public void testGameStartForHangman() {
 		Hangman h = new Hangman("hangman");
 		assertEquals("-------", h.getWord());
+		assertEquals("hangman", h.getSecret());
 		assertTrue(h.getMisses().isEmpty());
 	}
 
@@ -19,6 +21,7 @@ public class HangmanTest {
 	public void testGameStartForCasa() {
 		Hangman h = new Hangman("casa");
 		assertEquals("----", h.getWord());
+		assertEquals("casa", h.getSecret());
 		assertTrue(h.getMisses().isEmpty());
 	}
 
@@ -29,34 +32,48 @@ public class HangmanTest {
 		assertEquals("-------", h.getWord());
 		assertTrue(h.getMisses().contains("e"));
 	}
-	
-/*	@Test
+
+	@Test
 	public void testFirstGuessRight() {
 		Hangman h = new Hangman("casa");
 		h.guess("a");
 		assertEquals("-a-a", h.getWord());
 		assertTrue(h.getMisses().isEmpty());
-	} */
-	
-/*	@Test
-	public void testIfTheGameIsOver() {
-		Hangman h = new Hangman("casa");
-		h.guess("a");
-	//	h.guess("c");
-	//	h.guess("s");
-		assertEquals("aaaa", h.getWord());
-		assertTrue(h.getMisses().isEmpty());
-		assertEquals(true, h.getGameOver());
 	}
-	*/
+
 	@Test
-	public void testIfTheGameIsNotOver() {
+	public void testIfTheGameIsNotOverWhenMissingLetter() {
 		Hangman h = new Hangman("casa");
 		h.guess("b");
 		assertTrue(h.getMisses().contains("b"));
 		assertEquals(false, h.getGameOver());
 	}
-	
+
+	@Test
+	public void testIfTheGameIsOverByWinning() {
+		Hangman h = new Hangman("casa");
+		h.guess("a");
+		h.guess("c");
+		h.guess("s");
+		assertEquals("casa", h.getWord());
+		assertTrue(h.getMisses().isEmpty());
+		assertEquals(true, h.getGameOver());
+	}
+
+	@Test
+	public void testIfTheGameIsOverByWinningWithTwoMisses() {
+		Hangman h = new Hangman("casa");
+		h.guess("a");
+		h.guess("d");
+		h.guess("c");
+		h.guess("o");
+		h.guess("s");
+
+		assertEquals("casa", h.getWord());
+		assertFalse(h.getMisses().isEmpty());
+		assertEquals(true, h.getGameOver());
+	}
+
 	@Test
 	public void testIfTheGameIsOverByDeath() {
 		Hangman h = new Hangman("casa");

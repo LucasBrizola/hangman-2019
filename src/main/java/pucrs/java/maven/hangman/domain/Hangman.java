@@ -24,6 +24,10 @@ public class Hangman {
 		return word;
 	}
 
+	public String getSecret() {
+		return secret;
+	}
+
 	private void generateInitialSecret() {
 		word = "";
 		for (int i = 0; i < this.secret.length(); i++) {
@@ -37,9 +41,8 @@ public class Hangman {
 		}
 		if (word.contains("-")) {
 			return false;
-		}
-		else{
-		return true;
+		} else {
+			return true;
 		}
 	}
 
@@ -48,20 +51,17 @@ public class Hangman {
 	}
 
 	public void guess(String letter) {
-		// FIXME: comparar letter e secret!
 		letter = letter.toLowerCase();
+		char[] letterAsChar = letter.toCharArray();
 		boolean checarLetra = secret.contains(letter);
 		if (checarLetra == true) {
 			for (int i = 0; i < secret.length(); i++) {
-
-				System.out.println(secret);
-				System.out.println(word);
+				char[] wordAsChar = word.toCharArray();
 				char letra = secret.charAt(i);
-				String letra1 = String.valueOf(letra);
-				if (letra1.equals(letter)) {
-					word = word.replace("-", letter);
+				if (letterAsChar[0] == letra) {
+					wordAsChar[i] = letra;
 				}
-
+				word = String.copyValueOf(wordAsChar);
 			}
 
 		} else {
@@ -69,10 +69,24 @@ public class Hangman {
 		}
 		gameOver = checkIfTheGameIsOver();
 		if (gameOver == true) {
-			System.out.println("The game is over, the word was: " + getWord());
+			letter = letter.toUpperCase();
+			System.out.println("The letter was: "+ letter);
+			if(misses.size() <= 5) {
+				System.out.println("You have won!");
+			}
+			else {
+				System.out.println("You lost...");
+			}
+			System.out.println("The game is over, the word was: " + getSecret());
 		} else {
+			letter = letter.toUpperCase();
+			System.out.println("The letter was: "+ letter);
+			for (String miss : misses) {
+				System.out.println("Letters wrong: "+ miss);
+			}
+
 			System.out.println("Next Guess: ");
-			System.out.println("misses.size = "+misses.size());
+			System.out.println("");
 		}
 	}
 
