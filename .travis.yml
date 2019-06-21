@@ -1,3 +1,2 @@
 language: java
-
-script: mvn test -f ./hangman-2019/pom.xml
+jdk: oraclejdk8
